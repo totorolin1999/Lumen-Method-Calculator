@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Loan Calculator</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+
+<body>
+  <section class="section">
+    <div class="container">
+      <div class="content">
+        <h1>流明法（Lumen Method）</h1>
+        <p>N = ( E x A) / (F x U x M), A = L x W</p>
+      </div>
+
+      <div class="columns">
+        <div class="column is-three-quarters">
+          <div class="card">
+            <div class="card-content">
+              <form id="lumen-method">
+                <div class="level">
+                  <div class="level-left is-marginless">
+                    <div class="level-item">
+                      <p class="number">E：</p>
+                      照明設計之平均基準照度（Lux）
+                    </div>
+                  </div>
+
+                  <div class="level-right">
+                    <div class="level-item">
+                      <div class="field">
+                        <input class="input" id="e" type="text" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="level">
+                  <div class="level-left is-marginless">
+                    <div class="level-item">
+                      <p class="number">L：</p>
+                      房間長度（L）
+                    </div>
+                  </div>
+
+                  <div class="level-right">
+                    <div class="level-item">
+                      <div class="field">
+                        <input class="input" id="l" type="text" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="level">
+                  <div class="level-left is-marginless">
+                    <div class="level-item">
+                      <p class="number">W：</p>
+                      房間寬度（W）
+                    </div>
+                  </div>
+
+                  <div class="level-right">
+                    <div class="level-item">
+                      <div class="field">
+                        <input class="input" id="w" type="text" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="level">
+                  <div class="level-left is-marginless">
+                    <div class="level-item">
+                      <p class="number">F：</p>
+                      每盞燈具流明數（lm）
+                    </div>
+                  </div>
+
+                  <div class="level-right">
+                    <div class="level-item">
+                      <div class="field">
+                        <input class="input" id="f" type="text" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="control">
+                  <button class="button is-large is-fullwidth is-primary is-outlined">
+                    Calculate
+                  </button>
+                </div>
+
+                <div class="level">
+                  <div class="level-left is-marginless">
+                    <div class="level-item">
+                      <p class="number">N：</p>
+                      所需照明燈具之盞數
+                    </div>
+                  </div>
+
+                  <div class="level-right">
+                    <div class="level-item">
+                      <div class="field">
+                        <p id="n" class="title is-1"></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</body>
+
+<script>
+  document.getElementById("lumen-method").addEventListener("submit", computeResults);
+
+  function computeResults(e) {
+
+    const E = document.getElementById("e").value;
+    const L = document.getElementById("l").value;
+    const W = document.getElementById("w").value;
+    const F = document.getElementById("f").value;
+
+    if (E > 0 && L > 0 && W > 0 && F > 0) {
+
+      const Efloat = parseFloat(E);
+      const Lfloat = parseFloat(L);
+      const Wfloat = parseFloat(W);
+      const Ffloat = parseFloat(F);
+      const Ufloat = 0.55;
+      const Mfloat = 0.65;
+
+      const Nfloat = Efloat * (Lfloat * Wfloat) / (Ffloat * Ufloat * Mfloat);
+      const Ntofixed = Nfloat.toFixed(2);
+
+      document.getElementById("n").innerHTML = Ntofixed;
+
+    } else {
+      alert("請輸入正確數值！")
+    }
+
+    e.preventDefault();
+  }
+</script>
+
+</html>
