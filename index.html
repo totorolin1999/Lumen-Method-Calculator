@@ -4,9 +4,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Loan Calculator</title>
+  <title>Lumen Method Calculator</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  <script src="app.js" defer></script>
 </head>
 
 <body>
@@ -33,7 +34,7 @@
                   <div class="level-right">
                     <div class="level-item">
                       <div class="field">
-                        <input class="input" id="e" type="text" />
+                        <input class="input" id="StringE" type="text" />
                       </div>
                     </div>
                   </div>
@@ -50,7 +51,7 @@
                   <div class="level-right">
                     <div class="level-item">
                       <div class="field">
-                        <input class="input" id="l" type="text" />
+                        <input class="input" id="StringL" type="text" />
                       </div>
                     </div>
                   </div>
@@ -67,7 +68,7 @@
                   <div class="level-right">
                     <div class="level-item">
                       <div class="field">
-                        <input class="input" id="w" type="text" />
+                        <input class="input" id="StringW" type="text" />
                       </div>
                     </div>
                   </div>
@@ -84,7 +85,7 @@
                   <div class="level-right">
                     <div class="level-item">
                       <div class="field">
-                        <input class="input" id="f" type="text" />
+                        <input class="input" id="StringF" type="text" />
                       </div>
                     </div>
                   </div>
@@ -107,7 +108,7 @@
                   <div class="level-right">
                     <div class="level-item">
                       <div class="field">
-                        <p id="n" class="title is-1"></p>
+                        <p id="StringN" class="title is-1"></p>
                       </div>
                     </div>
                   </div>
@@ -123,36 +124,5 @@
   </section>
 </body>
 
-<script>
-  document.getElementById("lumen-method").addEventListener("submit", computeResults);
-
-  function computeResults(e) {
-
-    const E = document.getElementById("e").value;
-    const L = document.getElementById("l").value;
-    const W = document.getElementById("w").value;
-    const F = document.getElementById("f").value;
-
-    if (E > 0 && L > 0 && W > 0 && F > 0) {
-
-      const Efloat = parseFloat(E);
-      const Lfloat = parseFloat(L);
-      const Wfloat = parseFloat(W);
-      const Ffloat = parseFloat(F);
-      const Ufloat = 0.55;
-      const Mfloat = 0.65;
-
-      const Nfloat = Efloat * (Lfloat * Wfloat) / (Ffloat * Ufloat * Mfloat);
-      const Ntofixed = Nfloat.toFixed(2);
-
-      document.getElementById("n").innerHTML = Ntofixed;
-
-    } else {
-      alert("請輸入正確數值！")
-    }
-
-    e.preventDefault();
-  }
-</script>
 
 </html>

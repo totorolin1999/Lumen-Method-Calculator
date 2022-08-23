@@ -2,10 +2,10 @@ document.getElementById("lumen-method").addEventListener("submit", computeResult
 
 function computeResults(e) {
 
-  const StringE = document.querySelector("#StringE").value;
-  const StringL = document.querySelector("#StringL").value;
-  const StringW = document.querySelector("#StringW").value;
-  const StringF = document.querySelector("#StringF").value;
+  const StringE = document.getElementById("StringE").value;
+  const StringL = document.getElementById("StringL").value;
+  const StringW = document.getElementById("StringW").value;
+  const StringF = document.getElementById("StringF").value;
 
   if (StringE > 0 && StringL > 0 && StringW > 0 && StringF > 0) {
 
@@ -19,7 +19,7 @@ function computeResults(e) {
     const NumberN = NumberE * (NumberL * NumberW) / (NumberF * NumberU * NumberM);
     const StringNtofixed = NumberN.toFixed(2);
 
-    document.querySelector("#StringN").innerHTML = StringNtofixed;
+    document.getElementById("StringN").innerHTML = StringNtofixed;
 
   } else {
     alert("請輸入正確數值！")
