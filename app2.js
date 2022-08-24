@@ -1,25 +1,25 @@
-document.getElementById("lumen-method").addEventListener("submit", computeResults);
+document.querySelector("#lumen-method").addEventListener("submit", computeResults);
 
 function computeResults(e) {
 
-  const StringE = document.querySelector("#StringE").value;
-  const StringL = document.querySelector("#StringL").value;
-  const StringW = document.querySelector("#StringW").value;
-  const StringF = document.querySelector("#StringF").value;
+  const stringE = document.querySelector("#stringE").value;
+  const stringL = document.querySelector("#stringL").value;
+  const stringW = document.querySelector("#stringW").value;
+  const stringF = document.querySelector("#stringF").value;
 
-  if (StringE > 0 && StringL > 0 && StringW > 0 && StringF > 0) {
+  if (stringE > 0 && stringL > 0 && stringW > 0 && stringF > 0) {
 
-    const NumberE = parseFloat(StringE);
-    const NumberL = parseFloat(StringL);
-    const NumberW = parseFloat(StringW);
-    const NumberF = parseFloat(StringF);
-    const NumberU = 0.55;
-    const NumberM = 0.65;
+    const numberE = parseFloat(stringE);
+    const numberL = parseFloat(stringL);
+    const numberW = parseFloat(stringW);
+    const numberF = parseFloat(stringF);
+    const numberU = 0.55;
+    const numberM = 0.65;
     
-    const NumberN = NumberE * (NumberL * NumberW) / (NumberF * NumberU * NumberM);
-    const StringNtofixed = NumberN.toFixed(2);
+    const numberN = numberE * (numberL * numberW) / (numberF * numberU * numberM);
+    const stringNtoFixed = numberN.toFixed(2);
 
-    document.querySelector("#StringN").innerHTML = StringNtofixed;
+    document.querySelector("#stringN").innerHTML = stringNtoFixed;
 
   } else {
     alert("請輸入正確數值！")

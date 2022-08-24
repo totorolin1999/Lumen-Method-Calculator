@@ -2,24 +2,24 @@ document.getElementById("lumen-method").addEventListener("submit", computeResult
 
 function computeResults(e) {
 
-  const StringE = document.getElementById("StringE").value;
-  const StringL = document.getElementById("StringL").value;
-  const StringW = document.getElementById("StringW").value;
-  const StringF = document.getElementById("StringF").value;
+  const stringE = document.getElementById("stringE").value;
+  const stringL = document.getElementById("stringL").value;
+  const stringW = document.getElementById("stringW").value;
+  const stringF = document.getElementById("stringF").value;
 
-  if (StringE > 0 && StringL > 0 && StringW > 0 && StringF > 0) {
+  if (stringE > 0 && stringL > 0 && stringW > 0 && stringF > 0) {
 
-    const NumberE = parseFloat(StringE);
-    const NumberL = parseFloat(StringL);
-    const NumberW = parseFloat(StringW);
-    const NumberF = parseFloat(StringF);
-    const NumberU = 0.55;
-    const NumberM = 0.65;
+    const numberE = parseFloat(stringE);
+    const numberL = parseFloat(stringL);
+    const numberW = parseFloat(stringW);
+    const numberF = parseFloat(stringF);
+    const numberU = 0.55;
+    const numberM = 0.65;
     
-    const NumberN = NumberE * (NumberL * NumberW) / (NumberF * NumberU * NumberM);
-    const StringNtofixed = NumberN.toFixed(2);
+    const numberN = numberE * (numberL * numberW) / (numberF * numberU * numberM);
+    const stringNtoFixed = numberN.toFixed(2);
 
-    document.getElementById("StringN").innerHTML = StringNtofixed;
+    document.getElementById("stringN").innerHTML = stringNtoFixed;
 
   } else {
     alert("請輸入正確數值！")
